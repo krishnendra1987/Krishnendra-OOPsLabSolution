@@ -1,8 +1,12 @@
 package department;
 
+/**
+ * Below enum class is used for defining different deparatments and there values. 
+ * @author krishnendra
+ *
+ */
 public enum Department {
-
-	TECHNICAL("technical"), ADMIN("admin"), HUMAN_RESOURCE("humanresource"), lEGAL("legal");
+	TECHNICAL("tech"), ADMIN("admin"), HUMAN_RESOURCE("humanresource"), lEGAL("legal");
 
 	private String departmentName;
 

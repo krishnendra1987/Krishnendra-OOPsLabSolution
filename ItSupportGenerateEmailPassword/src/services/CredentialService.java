@@ -8,8 +8,6 @@ public class CredentialService {
 	private static String password = "";
 	private static String userFirstName = "";
 
-	private static SecureRandom random = new SecureRandom();
-
 	/** different dictionaries used */
 	private static final String ALPHA_CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private static final String ALPHA = "abcdefghijklmnopqrstuvwxyz";
@@ -24,6 +22,8 @@ public class CredentialService {
 	 * @return the random password
 	 */
 	public static String generatePassword(int len, String dic) {
+		SecureRandom random = new SecureRandom();
+
 		String result = "";
 		for (int i = 0; i < len; i++) {
 			int index = random.nextInt(dic.length());
@@ -33,14 +33,17 @@ public class CredentialService {
 	}
 
 	/**
-	 * Below method is used for generating password after passing required validation require to generate password.
+	 * Below method is used for generating password after passing required
+	 * validation require to generate password.
 	 */
 	public static void generatePassword() {
 		password = generatePassword(8, ALPHA_CAPS + ALPHA + SPECIAL_CHARS + NUMERIC);
 	}
 
 	/**
-	 * Below method is used for generating email after taking first name, last name and department as parameters. 
+	 * Below method is used for generating email after taking first name, last name
+	 * and department as parameters.
+	 * 
 	 * @param firstName
 	 * @param lastName
 	 * @param department
@@ -51,10 +54,10 @@ public class CredentialService {
 		emailId = firstName + lastName + "@" + department + ".abc.com";
 
 	}
-	
-    /**
-     * Below method is used for showing credentials of user.
-     */
+
+	/**
+	 * Below method is used for showing credentials of user.
+	 */
 	public static void showCredentials() {
 		System.out.println("Dear " + userFirstName.substring(0, 1).toUpperCase() + userFirstName.substring(1)
 				+ " your generated credentials are as follows");
